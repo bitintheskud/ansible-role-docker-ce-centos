@@ -1,26 +1,30 @@
 ---
-# tasks file for docker-ce-centos
-# https://docs.docker.com/engine/installation/linux/centos/
+# Inspire by digitalocean
+# see: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-centos-7
 
 - name: check whether docker-ce has already installed
-  command: rpm -q docker-ce
-  register: result
-  changed_when: no
-  failed_when: no
+  yum:
+    list: docker
+  register: result_yum
+
+- debug:
+    var: result_yum
 
 - include: install_docker.yml
-  when: result.rc
+  when: result_yum.rc
   static: no
-- name: change the status of the docker daemon
+
+
+- name: Enable and start docker service
   service:
     name: docker
-    state: "{{docker_centos_state}}"
-  when: docker_centos_state is not undefined
-- name: make docker daemon enabled or disabled
-  service:
-    name: docker
-  when: docker_centos_enabled is not undefined
-- name: add users to the docker group
+    enabled: yes
+    state: started
+
+# You need to be root to run docker container.
+# add the user to docker group which need to run container.
+
+- name: Add users to the docker group
   user:
     name: "{{item}}"
     groups: docker

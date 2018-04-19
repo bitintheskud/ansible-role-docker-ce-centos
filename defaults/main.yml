@@ -1,6 +1,4 @@
 ---
-# defaults file for docker-ce-centos
+# Add your user which need to run container
 docker_centos_users: []
-docker_centos_version: "latest"
-docker_centos_started: no
-docker_centos_enabled: no
+
