@@ -2,8 +2,6 @@
 - hosts: default
   roles:
   - role: ansible-role-docker-ce-centos
-    docker_centos_state: started
-    docker_centos_enabled: yes
     docker_centos_users:
     - vagrant
     become: yes
@@ -15,3 +13,5 @@
     changed_when: false
   - debug:
       var: result.stdout
+
+  # To add later as a test -> docker pull hello-world
