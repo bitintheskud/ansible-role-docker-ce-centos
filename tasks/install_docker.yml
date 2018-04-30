@@ -8,17 +8,21 @@
     - docker-selinux
     - docker-engine
 
+- name: Create install directory
+  file:
+    path: "{{ docker_install_dir }}" 
+    state: directory
+    mode: 755
+    owner: root
+    group: root
+
 - name: Download script from official Docker
   get_url:
     url: https://get.docker.com/
-    dest: /tmp/docker_install.sh
+    dest: "{{ docker_install_dir }}"
     owner: "root"
     group: "root"
-    mode: 0600
+    mode: 0500
 
 - name: Run the install Docker script.
-  shell: sh VERSION={{ docker_version }} /tmp/docker_install.sh
-  register: docker_install
-
-- debug:
-  var: docker_install
+  shell: "{{ docker_install_dir }}/docker_install.sh"

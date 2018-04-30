@@ -11,12 +11,13 @@ Nothing.
 name | required | default | example | description
 --- | --- | --- | --- | ---
 docker_centos_users | no | [] | ["vagrant"] | users added to docker group
-docker_version | no | [] | "17.12.1" | install a specific version. Default is to install latest available.
+docker_version | no | "" (latest) | "17.12.1" | Install a specific docker version. 
+docker_install_dir | no | "/var/docker/install" | "/tmp" | download script in this directory
 
 
 ## Dependencies
 
-None
+ - Centos 7 (see AWS market place) 
 
 ## Example Playbook
 
@@ -27,11 +28,13 @@ None
   connection: local
   gather_facts: true
   become: yes
+
   vars:
      docker_centos_users:
        - vagrant
-     docker_version:
-       - 17.12.1
+
+  environment: 
+    VERSION: "{{ docker_version }}"
 
   roles:
     - ansible-role-docker-ce-centos
