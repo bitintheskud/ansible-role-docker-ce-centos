@@ -19,7 +19,7 @@
 - name: Download script from official Docker
   get_url:
     url: https://get.docker.com/
-    dest: "{{ docker_install_dir }}"
+    dest: "{{ docker_install_dir }}/docker_install.sh"
     owner: "root"
     group: "root"
     mode: 0500
