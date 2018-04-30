@@ -2,5 +2,5 @@
 # Add your user which need to run container
 docker_centos_users: []
 
-# to add later min major version / min minor version, etc
-
+# Version pinning. May not work with deprecated docker version.
+docker_version: []
