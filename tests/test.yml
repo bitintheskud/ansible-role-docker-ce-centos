@@ -1,17 +1,5 @@
 ---
-- hosts: default
+- hosts: all
+  become: true
   roles:
-  - role: ansible-role-docker-ce-centos
-    docker_centos_users:
-    - vagrant
-    become: yes
-
-  tasks:
-  - name: Check docker version
-    command: docker --version
-    register: result
-    changed_when: false
-  - debug:
-      var: result.stdout
-
-  # To add later as a test -> docker pull hello-world
+    - role_test
