@@ -1,25 +1,25 @@
 [![Build Status](https://travis-ci.org/bitintheskud/ansible-role-docker-ce-centos.svg?branch=master)](https://travis-ci.org/bitintheskud/ansible-role-docker-ce-centos)
 
-# Ansible role for Docker CE on Centos 7
+# Ansible role to install Docker CE
 
-ansible role to install Docker CE on CentOS 7
+Ansible role to install Docker CE on CentOS 7
 
 ## Requirements
 
-Nothing.
+None
 
 ## Role Variables
 
 name | required | default | example | description
 --- | --- | --- | --- | ---
-docker_centos_users | no | [] | ["vagrant"] | users added to docker group
-docker_version | no | "" (latest) | "17.12.1" | Install a specific docker version. 
-docker_install_dir | no | "/var/docker/install" | "/tmp" | download script in this directory
+docker_centos_users | no | [] | ["vagrant"] | Users added to docker group
+docker_version | no | "" | "17.12.1" | Install a specific docker version. None will install the latest version.
+docker_install_dir | no | "/var/docker/install" | "/tmp" | Download script in this directory
 
 
 ## Dependencies
 
- - Centos 7 (see AWS market place) 
+ - Centos 7 (see AWS market place)
 
 ## Example Playbook
 
@@ -41,6 +41,10 @@ docker_install_dir | no | "/var/docker/install" | "/tmp" | download script in th
   roles:
     - ansible-role-docker-ce-centos
 ```
+## What's next 
+
+- Make it for debian and ubuntu. 
+- Reinstall docker if not in target version. 
 
 ## License
 
