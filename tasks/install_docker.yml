@@ -17,7 +17,7 @@
     mode: 0600
 
 - name: Run the install Docker script.
-  shell: sh /tmp/docker_install.sh
+  shell: sh VERSION={{ docker_version }} /tmp/docker_install.sh
   register: docker_install
 
 - debug:
