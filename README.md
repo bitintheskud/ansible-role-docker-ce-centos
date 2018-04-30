@@ -1,4 +1,6 @@
-# ansible-docker-ce-centos
+[![Build Status](https://travis-ci.org/bitintheskud/ansible-role-docker-ce-centos.svg?branch=master)](https://travis-ci.org/bitintheskud/ansible-role-docker-ce-centos)
+
+# Ansible role for Docker CE on Centos 7
 
 ansible role to install Docker CE on CentOS 7
 
