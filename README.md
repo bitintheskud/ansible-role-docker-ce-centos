@@ -19,7 +19,7 @@ docker_install_dir | no | "/var/docker/install" | "/tmp" | Download script in th
 
 ## Dependencies
 
- - Centos 7 (see AWS market place)
+ - Centos 7
 
 ## Example Playbook
 
